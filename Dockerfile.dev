@@ -1,0 +1,12 @@
+FROM node:alpine
+
+WORKDIR /app
+
+COPY package.json .
+
+RUN npm install
+
+# we can safely remove this command line, because we have already set up volume references
+COPY . .
+
+CMD ["npm", "run", "start"]
